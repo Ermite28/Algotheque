@@ -41,6 +41,17 @@ class DynamicArray:
         self._A[k] = value
         self._n += 1
 
+    def remove(self, value):
+        """Remove first occurence of value """
+        for k in range(self._n):
+            if self._A[k] == value:
+                for i in range(k, self._n - 1):
+                    self._A[i] = self._A[i + 1]
+                self._A[self._n - 1] = None
+                self._n += -1
+                return
+        raise ValueError("Value not found")
+
     def _resize(self, c):
         """Resize internal array to capacity c."""
         B = self._make_array(c)
@@ -58,8 +69,5 @@ class DynamicArray:
 
 
 if __name__ == "__main__":
-    test = DynamicArray()
-    test.append(1)
-    test.append(2)
-    test.insert(1, 5)
-    print(test)
+    # Proceed to your test here
+    pass
