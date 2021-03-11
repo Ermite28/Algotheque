@@ -1,0 +1,1 @@
+from app.view.window import MyWindow
